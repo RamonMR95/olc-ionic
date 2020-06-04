@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>exam</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title><h2>Exam {{ exam }}</h2></ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-card *ngFor="let q of questions; let qind = index">
+        <ion-card-header>
+          <ion-card-title color="primary"
+            >{{ qind + 1 }} - {{ q.question.name }}</ion-card-title
+          >
+        </ion-card-header>
+        <ion-card-content>
+          <ion-radio-group [(ngModel)]="selected[qind]">
+            <ion-item *ngFor="let ans of q.answers; let i = index">
+              <ion-label class="radio-label-fontsize ion-text-wrap">{{ans.answer}}</ion-label>
+              <ion-radio [value]="ans"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-card-content>
+      </ion-card>
+    </ion-card-content>
+    <ion-buttons>
+      <ion-button
+        name="submit"
+        class="center mb-5"
+        shape="round"
+        fill="outline"
+        color="primary"
+        (click)="submitExam()"
+        >Submit</ion-button
+      >
+    </ion-buttons>
+  </ion-card>
+</ion-content>
