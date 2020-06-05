@@ -10,6 +10,8 @@ import { Router } from "@angular/router";
   styleUrls: ["./login.page.scss"],
 })
 export class LoginPage implements OnInit {
+  userId: number;
+
   constructor(
     private alertController: AlertController,
     private loginService: LoginService,
@@ -17,6 +19,7 @@ export class LoginPage implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.userId = parseInt(localStorage.getItem("id"));
     this.presentAlertPrompt();
   }
 
@@ -42,7 +45,7 @@ export class LoginPage implements OnInit {
           role: "cancel",
           cssClass: "secondary",
           handler: () => {
-            console.log("Confirm Cancel");
+
           },
         },
         {
@@ -50,7 +53,6 @@ export class LoginPage implements OnInit {
           handler: (data) => {
             let UserLogin = { username: data.email, password: data.password };
             this.login(UserLogin);
-            console.log("Confirm Ok");
           },
         },
       ],
@@ -63,7 +65,7 @@ export class LoginPage implements OnInit {
       .authenticate(user)
       .then((resp: any) => {
         this.loginService.setLocalStorage(resp);
-        this.router.navigate(["/exam/1"]);
+        // this.router.navigate(["/profile/", this.userId]);
       })
       .catch((err) => {
         console.log("Err", err)
