@@ -19,6 +19,7 @@ export class ExamPage implements OnInit {
   questions: QuestionAnswer[] = [];
   selected: Array<any> = new Array(5);
   correctAnswers: number = 0;
+  userId: number;
 
   constructor(
     private examService: ExamService,
@@ -29,6 +30,7 @@ export class ExamPage implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.userId = parseInt(localStorage.getItem("id"));
     this.examId = this.route.snapshot.params.id;
     this.getQuestionsAndAnswers(this.examId);
   }
@@ -63,8 +65,7 @@ export class ExamPage implements OnInit {
 
   createExam(): void {
     let usr = new User();
-    // usr.id = parseInt(localStorage.getItem("id"));
-    usr.id = 1;
+    usr.id = this.userId;
     let exam = new Exam();
     exam.id = this.examId;
     let userExam = new UserExam(usr, exam, this.correctAnswers, new Date());
@@ -98,6 +99,7 @@ export class ExamPage implements OnInit {
           handler: () => {
             this.createExam();
             this.showSubmitedDialog();
+            // this.router.navigate(["/profile/", this.userId]);
           },
         },
       ],
@@ -106,7 +108,4 @@ export class ExamPage implements OnInit {
     await alert.present();
   }
 
-  showContent(content: any): void {
-    console.log(content);
-  }
 }
