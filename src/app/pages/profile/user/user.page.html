@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>User Info</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item class="margin-top">
+    <ion-thumbnail class="size-img-class">
+      <ion-img
+        *ngIf="!user?.photo"
+        src="https://firebasestorage.googleapis.com/v0/b/olc-imgs.appspot.com/o/images%2Fdefault.png?alt=media&token=05a496ca-1c9f-4d27-bd57-eca95fed766f"
+      ></ion-img>
+    </ion-thumbnail>
+
+    <ion-thumbnail class="size-img-class">
+      <ion-img *ngIf="user?.photo" [src]="user?.photo"></ion-img>
+    </ion-thumbnail>
+  </ion-item>
+  <ion-list class="border-style-out">
+    <ion-item>
+      <form [formGroup]="userDetails">
+        <ion-item>
+          <ion-input
+            formControlName="nameUser"
+            value=""
+            type="text"
+            placeholder="Your Name *"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input
+            formControlName="surName"
+            value=""
+            type="text"
+            placeholder="Your Surname *"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input
+            formControlName="email"
+            value=""
+            type="text"
+            placeholder="Your email *"
+          ></ion-input>
+        </ion-item>
+        <ion-item class="border-style-width-out">
+          <ion-input
+            formControlName="birthDate"
+            value=""
+            type="text"
+            placeholder="Your Date of birth *"
+          ></ion-input>
+        </ion-item>
+        <ion-item class="ion-no-border">
+          <ion-textarea
+            formControlName="description"
+            value=""
+            type="text"
+            rows="6"
+            cols="20"
+            placeholder="User description * "
+          ></ion-textarea>
+        </ion-item>
+      </form>
+    </ion-item>
+  </ion-list>
+</ion-content>
