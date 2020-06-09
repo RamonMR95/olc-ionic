@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>User Info</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item class="margin-top"> </ion-item>
+  <ion-list class="border-style-out">
+    <ion-item>
+      <form [formGroup]="addressDetails">
+        <ion-item>
+          <ion-input
+            formControlName="street"
+            value=""
+            type="text"
+            placeholder="Your street *"
+            disabled
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input
+            formControlName="city"
+            value=""
+            type="text"
+            placeholder="Your city *"
+            disabled
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input
+            formControlName="province"
+            value=""
+            type="text"
+            placeholder="Your province *"
+            disabled
+          ></ion-input>
+        </ion-item>
+        <ion-item class="border-style-width-out">
+          <ion-input
+            formControlName="zip"
+            value=""
+            type="number"
+            placeholder="Your zip *"
+            disabled
+          ></ion-input>
+        </ion-item>
+      </form>
+    </ion-item>
+  </ion-list>
+</ion-content>
