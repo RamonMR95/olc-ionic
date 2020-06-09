@@ -38,7 +38,6 @@ export class ExamGuard implements CanActivate {
 
     this.userId = parseInt(localStorage.getItem("id"));
     this.examId = parseInt(route.params.id);
-    console.log(this.userId, this.examId);
 
     return new Promise<any>((resolve, reject) => {
       this.examService
