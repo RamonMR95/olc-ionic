@@ -42,7 +42,7 @@ export class ExamPage implements OnInit {
         for (let i = 0; i < exam.length; i++) {
           let question: QuestionAnswer = {
             question: exam[i].question,
-            answers: exam[i].answer,
+            answers: exam[i].answers,
           };
           this.questions.push(question);
         }
@@ -99,7 +99,7 @@ export class ExamPage implements OnInit {
           handler: () => {
             this.createExam();
             this.showSubmitedDialog();
-            // this.router.navigate(["/profile/", this.userId]);
+            this.router.navigate(["/profile/", this.userId, "user"]);
           },
         },
       ],

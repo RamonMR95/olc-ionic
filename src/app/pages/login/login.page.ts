@@ -65,7 +65,7 @@ export class LoginPage implements OnInit {
       .authenticate(user)
       .then((resp: any) => {
         this.loginService.setLocalStorage(resp);
-        // this.router.navigate(["/profile/", this.userId]);
+        this.router.navigate(["/profile/", this.userId, "user"]);
       })
       .catch((err) => {
         console.log("Err", err)
