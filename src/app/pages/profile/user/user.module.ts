@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { UserPageRoutingModule } from './user-routing.module';
 
 import { UserPage } from './user.page';
+import { ComponentsModule } from '../../../components/components.module';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { UserPage } from './user.page';
     FormsModule,
     IonicModule,
     ReactiveFormsModule,
-    UserPageRoutingModule
+    UserPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [UserPage]
 })

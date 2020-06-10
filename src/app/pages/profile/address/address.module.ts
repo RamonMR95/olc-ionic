@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { AddressPageRoutingModule } from './address-routing.module';
 
 import { AddressPage } from './address.page';
+import { ComponentsModule } from '../../../components/components.module';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { AddressPage } from './address.page';
     FormsModule,
     IonicModule,
     ReactiveFormsModule,
-    AddressPageRoutingModule
+    AddressPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [AddressPage]
 })
