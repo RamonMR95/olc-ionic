@@ -6,7 +6,7 @@
   </ion-header>
   <ion-content>
     <ion-item>
-      <ion-avatar slot="start">
+      <ion-avatar *ngIf="user !== undefined" slot="start">
         <img
           class="img-margin"
           *ngIf="!user?.photo"
