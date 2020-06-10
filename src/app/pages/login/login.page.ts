@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { AlertController } from "@ionic/angular";
 import { UserLogin } from "src/app/interfaces/user.login.interface";
 import { LoginService } from "../../services/login.service";
@@ -14,12 +14,10 @@ export class LoginPage implements OnInit {
 
   constructor(
     private alertController: AlertController,
-    private loginService: LoginService,
-    private router: Router
+    private loginService: LoginService
   ) {}
 
   ngOnInit() {
-    this.userId = parseInt(localStorage.getItem("id"));
     this.presentAlertPrompt();
   }
 
@@ -27,6 +25,7 @@ export class LoginPage implements OnInit {
     const alert = await this.alertController.create({
       cssClass: "my-custom-class",
       header: "Login!",
+      backdropDismiss: false,
       inputs: [
         {
           name: "email",
@@ -45,7 +44,7 @@ export class LoginPage implements OnInit {
           role: "cancel",
           cssClass: "secondary",
           handler: () => {
-
+            location.href = "#top";
           },
         },
         {
@@ -65,14 +64,23 @@ export class LoginPage implements OnInit {
       .authenticate(user)
       .then((resp: any) => {
         this.loginService.setLocalStorage(resp);
-        this.router.navigate(["/profile/", this.userId, "user"]);
-      })
-      .catch((err) => {
-        console.log("Err", err)
-        // this.loginService.logout();
-        // this.router.url.replace("/", "") === "register"
-        //   ? this.router.navigate(["/register"])
-        //   : this.router.navigate(["/login"]);
-      });
+        this.userId = parseInt(localStorage.getItem("id"));
+        location.href = "#top";
+      }).catch(_ => this.presentAlert());
+  }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: "Invalid credentials!!!",
+      message: "Try again",
+      buttons: [{
+        text: "Ok",
+        handler: (_) => {
+          this.presentAlertPrompt();
+        }        
+      }],
+    });
+
+    await alert.present();
   }
 }
