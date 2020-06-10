@@ -16,9 +16,9 @@ export class UserPage implements OnInit {
     private router: Router
   ) {}
 
-  private userDetails: FormGroup;
-  private user: User;
-  private idUser: number = parseInt(this.router.url.replace(/[^0-9]/g, ''));
+  userDetails: FormGroup;
+  user: User;
+  idUser: number = parseInt(this.router.url.replace(/[^0-9]/g, ''));
 
   ngOnInit() {
     this.initForm();

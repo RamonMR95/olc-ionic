@@ -10,12 +10,12 @@ export class User {
     public address?: Address,
     public role?: Role,
     public course?: Course,
-    public name?: String,
-    public surName?: String,
-    public email?: String,
-    public password?: String,
+    public name?: string,
+    public surName?: string,
+    public email?: string,
+    public password?: string,
     public birthDate?: Date,
-    public photo?: String,
-    public about?: String
+    public photo?: string,
+    public about?: string
   ) {}
 }

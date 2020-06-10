@@ -8,6 +8,7 @@ import { UserService } from "../../services/user.service";
   styleUrls: ["./menu.component.scss"],
 })
 export class MenuComponent implements OnInit {
+  user: User;
   appPages: any[];
 
   constructor(private userService: UserService) {}
@@ -19,20 +20,21 @@ export class MenuComponent implements OnInit {
   getUser() {
     let email: string = localStorage.getItem("email");
     this.userService.getUserByEmail(email).then((usr) => {
-      this.setUpRoutes(usr);
+      this.user = usr;
+      this.setUpRoutes();
     });
   }
 
-  setUpRoutes(user: User) {
+  setUpRoutes() {
     this.appPages = [
       {
         title: "Profile",
-        url: `/profile/${user?.id}/user`,
+        url: `/profile/${this.user?.id}/user`,
         icon: "person-outline",
       },
       {
         title: "Course",
-        url: `/course/${user?.course.id}`,
+        url: `/course/${this.user?.course.id}`,
         icon: "book-outline",
       },
       {
