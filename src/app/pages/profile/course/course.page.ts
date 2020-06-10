@@ -17,9 +17,9 @@ export class CoursePage implements OnInit {
     private userService: UserService
   ) {}
 
-  private courseUsr: Course;
-  private userId: number = parseInt(this.router.url.replace(/[^0-9]/g, ""));
-  private mentorCourse: User;
+  courseUsr: Course;
+  userId: number = parseInt(this.router.url.replace(/[^0-9]/g, ""));
+  mentorCourse: User;
 
   ngOnInit() {
     this.getUsrCourse();

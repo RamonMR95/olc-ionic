@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
+import { ComponentsModule } from './components/components.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +23,7 @@ import { JwtInterceptor } from './interceptors/jwt.interceptor';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    ComponentsModule
   ],
   providers: [
     StatusBar,

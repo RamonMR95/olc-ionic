@@ -1,0 +1,28 @@
+<ion-menu side="start" menuId="first" contentId="main-content">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-item>
+      <ion-avatar slot="start">
+        <img
+          class="img-margin"
+          *ngIf="!user?.photo"
+          src="https://firebasestorage.googleapis.com/v0/b/olc-imgs.appspot.com/o/images%2Fdefault.png?alt=media&token=05a496ca-1c9f-4d27-bd57-eca95fed766f"
+        />
+        <img class="img-margin" *ngIf="user?.photo" src="user?.photo" />
+      </ion-avatar>
+      <ion-label>{{ user?.name }} {{ user?.surName }}</ion-label>
+    </ion-item>
+    <ion-list>
+      <ion-menu-toggle *ngFor="let p of appPages">
+        <ion-item [routerLink]="p.url">
+          <ion-icon [name]="p.icon" slot="start"></ion-icon>
+          <ion-label>{{ p.title }}</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+    </ion-list>
+  </ion-content>
+</ion-menu>

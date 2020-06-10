@@ -16,9 +16,9 @@ export class AddressPage implements OnInit {
     private form: FormBuilder
   ) {}
 
-  private addressDetails: FormGroup;
-  private addressUsr: Address;
-  private idUser: number = parseInt(this.router.url.replace(/[^0-9]/g, ''));
+  addressDetails: FormGroup;
+  addressUsr: Address;
+  idUser: number = parseInt(this.router.url.replace(/[^0-9]/g, ''));
 
   ngOnInit() {
     this.initForm();

@@ -15,11 +15,6 @@ const routes: Routes = [
       import("./pages/home/home.module").then((m) => m.HomePageModule),
   },
   {
-    path: "folder/:id",
-    loadChildren: () =>
-      import("./folder/folder.module").then((m) => m.FolderPageModule),
-  },
-  {
     path: "exam/:id",
     loadChildren: () =>
       import("./pages/exam/exam.module").then((m) => m.ExamPageModule),
@@ -31,11 +26,16 @@ const routes: Routes = [
       import("./pages/login/login.module").then((m) => m.LoginPageModule),
   },
   {
-    path: 'profile/:id',
-    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule),
-    canActivate: [AuthGuard]
-  }
-
+    path: "profile/:id",
+    loadChildren: () =>
+      import("./pages/profile/profile.module").then((m) => m.ProfilePageModule),
+    canActivate: [AuthGuard],
+  },
+  {
+    path: "course/:id",
+    loadChildren: () =>
+      import("./pages/course/course.module").then((m) => m.CoursePageModule),
+  },
 ];
 
 @NgModule({
