@@ -1,0 +1,25 @@
+<app-header title="Contact Us"></app-header>
+
+<ion-content>
+  <form [formGroup]="form">
+    <div>
+      <ion-item>
+        <ion-label position="floating">Enter you name</ion-label>
+        <ion-input formControlName="name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Enter you email</ion-label>
+        <ion-input formControlName="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Subject</ion-label>
+        <ion-input formControlName="subject"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Body</ion-label>
+        <ion-textarea formControlName="body"></ion-textarea>
+      </ion-item>
+    </div>
+  </form>
+  <ion-button expand="full" (click)="sendMessage()">Submit</ion-button>
+</ion-content>
