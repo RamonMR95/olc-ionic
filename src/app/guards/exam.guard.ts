@@ -8,9 +8,6 @@ import {
 } from "@angular/router";
 import { Observable } from "rxjs";
 import { ExamService } from "../services/exam.service";
-import { catchError } from "rxjs/operators";
-import { HttpErrorResponse } from "@angular/common/http";
-import { resolve } from "url";
 import { Router } from "@angular/router";
 
 @Injectable({
@@ -44,7 +41,7 @@ export class ExamGuard implements CanActivate {
         .getUserExamByUserId(this.userId, this.examId)
         .then((_) => {
           resolve(false);
-          this.router.navigate(["/folder/Inbox"])
+          this.router.navigate(["/profile/", this.userId]);
         })
         .catch((_) => {
           resolve(true);

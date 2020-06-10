@@ -1,5 +1,24 @@
-<app-header title="Course"></app-header>
-
-<ion-content>
-
+<app-header title="Course Exam"></app-header>
+<ion-content class="icontent">
+  <ion-card>
+    <ion-card-header >
+      Next exams
+    </ion-card-header>
+    <ion-card-content>
+      <ion-label *ngIf="!(examList | async)?.length" class="floating"
+        >No exams left</ion-label
+      >
+      <ion-list class="ilist">
+        <ion-item
+          *ngFor="let e of examList | async"
+          [routerLink]="['/exam', e.id]"
+        >
+          <ion-icon name="school-outline" class="ion-margin-end"></ion-icon>
+          <ion-label>
+            {{ e?.name }} - {{ e?.date }}
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

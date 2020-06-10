@@ -40,6 +40,11 @@ const routes: Routes = [
     path: 'contact-us',
     loadChildren: () => import('./pages/contact-us/contact-us.module').then( m => m.ContactUsPageModule)
   },
+  {
+    path: 'logout',
+    loadChildren: () => import('./pages/logout/logout.module').then( m => m.LogoutPageModule)
+  },
+
 
 ];
 
