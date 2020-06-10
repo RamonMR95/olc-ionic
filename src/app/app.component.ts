@@ -14,7 +14,9 @@ export class AppComponent implements OnInit {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar
-  ) {
+  ) {}
+
+  ngOnInit() {
     this.initializeApp();
   }
 
@@ -24,6 +26,4 @@ export class AppComponent implements OnInit {
       this.splashScreen.hide();
     });
   }
-
-  ngOnInit() {}
 }
